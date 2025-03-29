@@ -19,19 +19,15 @@ public:
 
 			if (number == "1")
 			{
-				VectorT<int> a;
 				VectorT<int>::MenuVector(a);
 			}
 			else if (number == "2")
 			{
-				VectorT<double> b;
 				VectorT<double>::MenuVector(b);
 			}
 			else if (number == "3")
 			{
-				VectorT<std::string> z;
 				VectorT<std::string>::MenuVector(z);
-
 			}
 			else
 			{
@@ -39,6 +35,10 @@ public:
 			}
 		}
 	}
+private:
+	VectorT<int> a;
+	VectorT<double> b;
+	VectorT<std::string> z;
 };
 
 #endif // !_VECTORMENU_H_
