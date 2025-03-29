@@ -1,13 +1,8 @@
 #include "VectorT.hpp"
+#include "main.cpp"
 
 template<typename T>
-VectorT<T>::VectorT()
-{
-
-}
-
-template<typename T>
-inline void VectorT<T>::MenuVector()
+inline void VectorT<T>::MenuVector(const VectorT& vec)
 {
 	while (true)
 	{
@@ -20,39 +15,39 @@ inline void VectorT<T>::MenuVector()
 
 		if (number1 == "0")
 		{
-			Start();
+			main();
 		}
 		else if (number1 == "1")
 		{
-			FillingVector();
+			VectorT::PushBackVector(const T& vec);
 		}
 		else if (number1 == "2")
 		{
-			DeleteLastElements();
+			VectorT::PopBackVector(const T& vec);
 		}
 		else if (number1 == "3")
 		{
-			PrintVector();
+			VectorT::PrintVector(const T& vec);
 		}
 		else if (number1 == "4")
 		{
-			DeleteValue();
+			VectorT::DeleteValueVector(const T& vec);
 		}
 		else if (number1 == "5")
 		{
-			DeleteId();
+			VectorT::DeleteIndex(const T& vec);
 		}
 		else if (number1 == "6")
 		{
-			DeleteVector();
+			VectorT::ClearVector(const T& vec);
 		}
 		else if (number1 == "7")
 		{
-			SortVectorMax();
+			VectorT::SortVectorMax(const T& vec);
 		}
 		else if (number1 == "8")
 		{
-			SortVectorMin();
+			VectorT::SortVectorMin(const T& vec);
 		}
 		else
 		{

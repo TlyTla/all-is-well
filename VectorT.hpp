@@ -4,24 +4,27 @@
 #include<vector>
 #include<Windows.h>
 #include<iostream>
+#include<string>
 
 
 template<typename T>
 class VectorT
 {
 public:
-	VectorT();
-
-	void MenuVector();
-	void PushBackVector(const& value)
+	VectorT() {}
+	static void MenuVector(const VectorT& vec);
+	void PushBackVector(const T& vec)
 	{
+		int value;
+		std::cout << "\nВведите число: \n";
+		std::cin >> value;
 		vec.push_back(value);
 	}
-	void PopBackVector()
+	void PopBackVector(const T& vec)
 	{
 		vec.pop_back();
 	}
-	void PrintVector()
+	void PrintVector(const T& vec)
 	{
 		if (vec.size() == 0)
 		{
@@ -36,11 +39,14 @@ public:
 			}
 		}
 	}
-	void DeleteValueVector(const& value)
+	void DeleteValueVector(const T& vec)
 	{
+		int value;
+		std::cout << "\nВведите число которое хотите удалить: \n";
+		std::cin >> value;
 		vec.erase(remove(vec.begin(), vec.end(), value), vec.end());
 	}
-	void DeleteIndex()
+	void DeleteIndex(const T& vec)
 	{
 		int id;
 		std::cout << "\nВведите id для удаления: ";
@@ -54,11 +60,11 @@ public:
 			std::cout << "Плохое id" << std::endl;
 		}
 	}
-	void ClearVector()
+	void ClearVector(const T& vec)
 	{
 		vec.clear();
 	}
-	void SortVectorMax()
+	void SortVectorMax(const T& vec)
 	{
 		for (int i = 0; i < vec.size() - 1; i++)
 		{
@@ -71,15 +77,15 @@ public:
 			}
 		}
 	}
-	void SortVectorMin()
+	void SortVectorMin(const T& vec)
 	{
-		for (int i = 0; i < vec[.size() - 1; i++)
+		for (int i = 0; i < vec.size() - 1; i++)
 		{
-			for (int j = 0; j < vec[.size() - i - 1; j++)
+			for (int j = 0; j < vec.size() - i - 1; j++)
 			{
-				if (vec [[j]< vec [[j + 1])
+				if (vec [j]< vec [j + 1])
 				{
-					std::swap(vec[j], vec [[j + 1]);
+					std::swap(vec[j], vec [j + 1]);
 				}
 			}
 		}
