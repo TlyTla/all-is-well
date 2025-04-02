@@ -129,11 +129,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="VectorMenu.cpp" />
     <ClCompile Include="VectorT.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="VectorMenu.h" />
     <ClInclude Include="VectorT.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

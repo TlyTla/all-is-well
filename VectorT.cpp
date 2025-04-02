@@ -2,7 +2,7 @@
 #include "main.cpp"
 
 template<typename T>
-inline void VectorT<T>::MenuVector(const VectorT& vec)
+inline void VectorT<T>::MenuVector(const VectorT& obj)
 {
 	while (true)
 	{
@@ -19,40 +19,133 @@ inline void VectorT<T>::MenuVector(const VectorT& vec)
 		}
 		else if (number1 == "1")
 		{
-			VectorT::PushBackVector(const T& vec);
+			obj.PushBackVector();
 		}
 		else if (number1 == "2")
 		{
-			VectorT::PopBackVector(const T& vec);
+			obj.PopBackVector();
 		}
 		else if (number1 == "3")
 		{
-			VectorT::PrintVector(const T& vec);
+			obj.PrintVector();
 		}
 		else if (number1 == "4")
 		{
-			VectorT::DeleteValueVector(const T& vec);
+			obj.DeleteValueVector();
 		}
 		else if (number1 == "5")
 		{
-			VectorT::DeleteIndex(const T& vec);
+			obj.DeleteIndex();
 		}
 		else if (number1 == "6")
 		{
-			VectorT::ClearVector(const T& vec);
+			obj.ClearVector();
 		}
 		else if (number1 == "7")
 		{
-			VectorT::SortVectorMax(const T& vec);
+			obj.SortVectorMax();
 		}
 		else if (number1 == "8")
 		{
-			VectorT::SortVectorMin(const T& vec);
+			obj.SortVectorMin();
 		}
 		else
 		{
 			std::cout << "Ошибка ввода\n\n";
 			system("pause");
+		}
+	}
+}
+
+template<typename T>
+void VectorT<T>::PushBackVector()
+{
+	int value;
+	std::cout << "\nВведите число: \n";
+	std::cin >> value;
+	vec.push_back(value);
+}
+
+template<typename T>
+void VectorT<T>::PopBackVector()
+{
+	vec.pop_back();
+}
+
+template<typename T>
+void VectorT<T>::PrintVector()
+{
+	if (vec.size() == 0)
+	{
+		std::cout << "\nВуктор пуст.\n";
+	}
+	else
+	{
+		std::cout << "\nid\tСодержимое\n";
+		for (int i = 0; i < vec.size(); i++)
+		{
+			std::cout << i + 1 << "\t" << vec[i] << "\n";
+		}
+	}
+}
+
+template<typename T>
+void VectorT<T>::DeleteValueVector()
+{
+	int value;
+	std::cout << "\nВведите число которое хотите удалить: \n";
+	std::cin >> value;
+	vec.erase(remove(vec.begin(), vec.end(), value), vec.end());
+}
+
+template<typename T>
+void VectorT<T>::DeleteIndex()
+{
+	int id;
+	std::cout << "\nВведите id для удаления: ";
+	std::cin >> id;
+
+	if (id > 0 && id < vec.size()) {
+		vec.erase(vec.begin() + id - 1);
+		std::cout << "Элемент удален" << std::endl;
+	}
+	else {
+		std::cout << "Плохое id" << std::endl;
+	}
+}
+
+template<typename T>
+void VectorT<T>::ClearVector()
+{
+	vec.clear();
+}
+
+template<typename T>
+void VectorT<T>::SortVectorMax()
+{
+	for (int i = 0; i < vec.size() - 1; i++)
+	{
+		for (int j = 0; j < vec.size() - i - 1; j++)
+		{
+			if (vec[j] > vec[j + 1])
+			{
+				std::swap(vec[j], vec[j + 1]);
+			}
+		}
+	}
+}
+
+template<typename T>
+void VectorT<T>::SortVectorMin()
+{
+	for (int i = 0; i < vec.size() - 1; i++)
+	{
+		for (int j = 0; j < vec.size() - i - 1; j++)
+		{
+			if (vec[j] < vec[j + 1])
+			{
+				std::swap(vec[j], vec[j + 1]);
+			}
 		}
 	}
 }
