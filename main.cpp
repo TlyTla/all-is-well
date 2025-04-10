@@ -1,5 +1,11 @@
 #include "VectorT.hpp"
 
+#include<iostream>
+#include<Windows.h>
+
+VectorT<int> a;
+VectorT<double> c;
+VectorT<std::string> z;
 
 void Start();
 
@@ -18,28 +24,27 @@ void Start()
 	while (true)
 	{
 		std::string number;
-		std::cout << "1 - Вектор int.\n1 - Вектор double.\n1 - Вектор std::string.\n";
+		std::cout << "1 - Вектор int.\n2 - Вектор double.\n3 - Вектор std::string.\n";
 		std::cout << "С чем будем работать: ";
-		std::getline(std::cin, number);
+		std::cin>> number;
 
 		if (number == "1")
 		{
-			VectorT<int> a;
-			VectorT<int>::MenuVector(a);
+			a.MenuVector(a);
 		}
 		else if (number == "2")
 		{
-			VectorT<double> b;
-			VectorT<double>::MenuVector(b);
+			c.MenuVector(c);
 		}
 		else if (number == "3")
 		{
-			VectorT<std::string> z;
-			VectorT<std::string>::MenuVector(z);
+			z.MenuVector(z);
 		}
 		else
 		{
-			std::cout << "Неверный ввод!!!!!";
+			std::cout << "Неверный ввод!!!!!\n";
+			system("pause");
+			system("cls");
 		}
 	}
 }
